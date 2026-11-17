@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>지원서 어떻게 쓰지? - 경험 연관 핵심 역량 발견 서비스</title>
+  <!-- 분리된 외부 스타일시트 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 모바일 애플리케이션 프레임 -->
+  <div class="app-container">
+    
+    <!-- 최상단 앱 헤더 -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">✍️</div>
+        <div class="logo-title">지원서 어떻게 쓰지?</div>
+      </div>
+      <div class="status-tag">핵심 역량 매칭 v2.0</div>
+    </header>
+
+    <!-- 스크롤 컨텐츠 영역 -->
+    <main class="app-content">
+
+      <!-- ==============================================
+           1. 첫 화면 (INTRO SCREEN)
+           ============================================== -->
+      <section id="screen-intro" class="view-screen active">
+        <div class="intro-wrapper">
+          <div class="intro-badge">
+            <span class="sparkle">✨</span>
+            <span>경험 연관 핵심 역량 발견 서비스</span>
+          </div>
+
+          <h1 class="intro-title">
+            내 소소한 경험이<br>
+            <span class="highlight">합격 자기소개서</span>로!
+          </h1>
+
+          <p class="intro-desc">
+            알바, 학회, 자격증, 프로젝트 등 나의 모든 활동이<br>
+            목표 공고의 핵심 역량과 어떻게 연결되는지 분석해드려요.
+          </p>
+
+          <div class="intro-card-preview">
+            <span class="preview-pill">💡 매칭 리포트 미리보기</span>
+            <div class="preview-quote">
+              "카페 알바 경험에서 <strong>위기대처력</strong>과 <strong>고객 중심 소통 역량</strong>을 추출하여 마케팅 서포터즈 공고와 88% 매칭되었습니다!"
+            </div>
+            <div class="preview-tags">
+              <span class="preview-tag">#역량매칭률 88%</span>
+              <span class="preview-tag">#이유와 근거</span>
+              <span class="preview-tag">#보완포인트 제시</span>
+            </div>
+          </div>
+
+          <button class="btn-main" id="btn-start-app">
+            <span>지원서 어떻게 쓰지? 시작하기</span>
+            <span>👉</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ==============================================
+           2. 입력 화면 (INPUT SCREEN)
+           ============================================== -->
+      <section id="screen-input" class="view-screen">
+        
+        <!-- 1. 모집공고 첨부 -->
+        <div class="form-section">
+          <div class="section-title-wrap">
+            <label class="section-label">
+              <span class="num">1</span>
+              <span>모집 공고 첨부 (사진)</span>
+            </label>
+            <span style="font-size:11px; color:var(--primary); font-weight:600;">*필수</span>
+          </div>
+          <div class="section-desc">지원하려는 채용 공고나 대외활동 포스터 이미지를 업로드하세요.</div>
+
+          <div class="upload-box" id="drop-zone">
+            <input type="file" id="input-notice-file" accept="image/*">
+            <div class="upload-icon">📷</div>
+            <div class="upload-text">공고 이미지 직접 업로드</div>
+            <div class="upload-sub">클릭하거나 사진을 드래그하여 첨부해주세요</div>
+          </div>
+
+          <!-- 이미지 미리보기 박스 -->
+          <div class="preview-container" id="notice-preview-wrap">
+            <img id="notice-preview-img" src="" alt="공고 미리보기">
+            <div class="preview-overlay">
+              <span id="preview-filename">공고_이미지.png</span>
+              <button class="btn-remove-img" id="btn-remove-notice">삭제</button>
+            </div>
+          </div>
+
+          <!-- 샘플 공고 선택 버튼 -->
+          <div style="margin-top:10px;">
+            <div style="font-size:11px; color:#64748b; margin-bottom:4px;">사진이 없으신가요? 샘플 공고 즉시 선택:</div>
+            <div class="sample-notice-wrap">
+              <button type="button" class="sample-btn" data-preset="marketing">📢 마케팅·콘텐츠 서포터즈</button>
+              <button type="button" class="sample-btn" data-preset="service">☕ F&B 서비스·영업직</button>
+              <button type="button" class="sample-btn" data-preset="it">💻 IT·기획 프로젝트</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 사용자 경험 분야 선택 -->
+        <div class="form-section">
+          <div class="section-title-wrap">
+            <label class="section-label">
+              <span class="num">2</span>
+              <span>사용자 경험 유형 선택</span>
+            </label>
+            <span style="font-size:11px; color:var(--primary); font-weight:600;">*필수</span>
+          </div>
+          <div class="section-desc">본인이 자소서에 어필하고 싶은 대표 경험 분야를 선택하세요.</div>
+
+          <div class="chip-grid" id="exp-chip-group">
+            <div class="chip-card" data-category="알바">
+              <div class="icon-box">☕</div>
+              <div class="chip-info">
+                <div class="chip-title">알바 (아르바이트)</div>
+                <div class="chip-sub">카페, 편의점, 매장관리 등</div>
+              </div>
+            </div>
+
+            <div class="chip-card" data-category="대외활동">
+              <div class="icon-box">📢</div>
+              <div class="chip-info">
+                <div class="chip-title">서포터즈 등 대외활동</div>
+                <div class="chip-sub">기업 서포터즈, 기자단 등</div>
+              </div>
+            </div>
+
+            <div class="chip-card" data-category="교내활동">
+              <div class="icon-box">🎓</div>
+              <div class="chip-info">
+                <div class="chip-title">학회 등 교내활동</div>
+                <div class="chip-sub">동아리, 학회, 학생회 등</div>
+              </div>
+            </div>
+
+            <div class="chip-card" data-category="자격증">
+              <div class="icon-box">📜</div>
+              <div class="chip-info">
+                <div class="chip-title">자격증 취득</div>
+                <div class="chip-sub">어학, 컴퓨터, 직무 자격 등</div>
+              </div>
+            </div>
+
+            <div class="chip-card" data-category="공모전">
+              <div class="icon-box">🏆</div>
+              <div class="chip-info">
+                <div class="chip-title">공모전 & 프로젝트</div>
+                <div class="chip-sub">기획, 디자인, 팀 해커톤 등</div>
+              </div>
+            </div>
+
+            <div class="chip-card" data-category="개인SNS">
+              <div class="icon-box">📱</div>
+              <div class="chip-info">
+                <div class="chip-title">개인 SNS·블로그 운영</div>
+                <div class="chip-sub">인스타, 블로그, 유튜브 등</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 구체적인 경험 줄글 작성 -->
+        <div class="form-section">
+          <div class="section-title-wrap">
+            <label class="section-label">
+              <span class="num">3</span>
+              <span>경험 상세 내용 작성</span>
+            </label>
+            <span style="font-size:11px; color:var(--primary); font-weight:600;">*필수</span>
+          </div>
+          <div class="section-desc">활동 당시 맡았던 역할, 발생한 문제나 갈등, 본인의 대처 과정을 편하게 적어주세요.</div>
+
+          <div class="textarea-wrap">
+            <textarea 
+              id="input-exp-detail" 
+              class="exp-textarea" 
+              placeholder="예) 6개월 동안 주말 카페 아르바이트를 하며 주문 실수로 화난 고객에게 차분하게 상황을 설명하고 새 음료와 사과 쿠폰을 제공해 단골로 만들었습니다."
+              maxlength="500"
+            ></textarea>
+            <div class="char-counter"><span id="char-count">0</span> / 500자</div>
+          </div>
+        </div>
+
+        <!-- 4. 기여도 및 몰입도 슬라이더 -->
+        <div class="form-section">
+          <div class="section-title-wrap">
+            <label class="section-label">
+              <span class="num">4</span>
+              <span>본인의 기여도 및 몰입도</span>
+            </label>
+            <span class="slider-val-badge" id="slider-text-badge">70%</span>
+          </div>
+          <div class="slider-container">
+            <div class="slider-role-desc" id="slider-role-label">💡 주도적으로 의견을 내고 협업을 이끌었어요.</div>
+            <input type="range" id="input-exp-slider" min="10" max="100" value="70" step="5">
+          </div>
+        </div>
+
+        <!-- 결과 출력 버튼 -->
+        <button class="btn-main" id="btn-submit-match">
+          <span>매칭률 & 자소서 전략 확인하기 🎯</span>
+        </button>
+        <div style="height: 20px;"></div>
+      </section>
+
+
+      <!-- ==============================================
+           3. 결과 화면 (RESULT SCREEN)
+           ============================================== -->
+      <section id="screen-result" class="view-screen">
+        
+        <!-- 상단 매칭률 게이지 카드 -->
+        <div class="result-header-card">
+          <span class="result-badge" id="result-badge-style">🎯 정밀 분석 완료</span>
+          
+          <div class="gauge-wrapper">
+            <svg class="gauge-svg" viewBox="0 0 140 140">
+              <circle class="gauge-bg" cx="70" cy="70" r="60"></circle>
+              <circle class="gauge-progress" id="result-gauge-bar" cx="70" cy="70" r="60"></circle>
+            </svg>
+            <div class="gauge-text-box">
+              <div class="gauge-percent"><span id="match-percent-num">0</span><span class="gauge-unit">%</span></div>
+              <div class="gauge-sublabel">공고 매칭률</div>
+            </div>
+          </div>
+
+          <!-- 추천 멘트 -->
+          <div class="quote-box" id="result-quote-text">
+            사용자의 경험과 해당 모집공고의 매칭률을 계산 중입니다.
+          </div>
+        </div>
+
+        <!-- 매칭률 판단 이유 -->
+        <div class="result-section-card">
+          <div class="card-heading">
+            <span>🔍</span>
+            <span>매칭률 판단 이유</span>
+          </div>
+          <div class="card-body-text" id="result-match-reason">
+            -
+          </div>
+        </div>
+
+        <!-- 엮어서 쓸 수 있는 역량 확장 -->
+        <div class="result-section-card">
+          <div class="card-heading">
+            <span>🔗</span>
+            <span>발견된 핵심 역량 & 함께 엮어 쓸 연계 역량</span>
+          </div>
+          <div class="competency-flow" id="result-competencies">
+            <!-- 동적 렌더링 -->
+          </div>
+        </div>
+
+        <!-- 자소서 작성 가이드 & 어필 팁 -->
+        <div class="result-section-card">
+          <div class="card-heading">
+            <span>📝</span>
+            <span>추천 자기소개서 작성 요령 (STAR 가이드)</span>
+          </div>
+          <div class="card-body-text" id="result-storyline">
+            -
+          </div>
+          <div class="guide-box">
+            <div class="guide-title">💡 자소서 소제목 추천 예시</div>
+            <div class="guide-content" id="result-subtitle-example">
+              "주문 실수를 단골 고객으로 바꾼 3분의 경청 리더십"
+            </div>
+          </div>
+        </div>
+
+        <!-- 보완해야 할 부분 -->
+        <div class="improve-box">
+          <div class="improve-title">
+            <span>⚠️</span>
+            <span>이 공고에 더 완벽하게 맞추려면? (보완 포인트)</span>
+          </div>
+          <div class="improve-text" id="result-improve-text">
+            -
+          </div>
+        </div>
+
+        <!-- 앞으로 더 성장하려면 / 어울리는 다른 대외활동 추천 -->
+        <div class="result-section-card">
+          <div class="card-heading">
+            <span>🚀</span>
+            <span>사용자 역량과 잘 맞는 추천 활동 & 로드맵</span>
+          </div>
+          <div class="rec-activity-list" id="result-recommend-activities">
+            <!-- 동적 렌더링 -->
+          </div>
+        </div>
+
+        <!-- 다시 골라보기 버튼 -->
+        <button class="btn-main" id="btn-restart">
+          <span>다시 골라보기 🔄</span>
+        </button>
+        <button class="btn-secondary" id="btn-copy-result">
+          <span>결과 리포트 클립보드 복사 📋</span>
+        </button>
+
+        <div style="height: 30px;"></div>
+      </section>
+
+    </main>
+
+    <!-- 로딩 오버레이 -->
+    <div class="loading-overlay" id="loading-overlay">
+      <div class="loading-spinner-ring"></div>
+      <div class="loading-step-text" id="loading-title">공고 이미지 스캔 중...</div>
+      <div class="loading-sub-text" id="loading-sub">사용자의 경험과 역량 키워드를 대조하고 있습니다.</div>
+    </div>
+
+    <!-- 토스트 팝업 (미입력 안내용) -->
+    <div class="toast-popup" id="toast-popup">
+      <span class="toast-icon">⚠️</span>
+      <span id="toast-message">필수 항목을 모두 입력해주세요!</span>
+    </div>
+
+  </div>
+
+  <!-- 분리된 외부 스크립트 연결 -->
+  <script src="app.js"></script>
+</body>
+</html>
